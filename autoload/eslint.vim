@@ -1,6 +1,6 @@
 " File: eslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.0
+" Version: 0.1.1
 " WebPage: http://github.com/heavenshell/vim-eslint-config
 " Description: Vim plugin for ESLint
 " License: BSD, see LICENSE for more details.
@@ -51,7 +51,7 @@ function! s:build_config(srcpath) abort
 endfunction
 
 " Build eslint bin path.
-function! s:build_textlink(binpath, configpath, target) abort
+function! s:build_eslint(binpath, configpath, target) abort
   let cmd = a:binpath . a:configpath . '%'
   return cmd
 endfunction
@@ -99,8 +99,8 @@ function! eslint#setup(...)
   let eslint = ret['bin']
   let config = ret['config']
 
-  let textlink = s:build_textlink(eslint, config, expand('%:p'))
-  let cmd = substitute(textlink, '\s', '\\ ', 'g')
+  let eslint_path = s:build_eslint(eslint, config, expand('%:p'))
+  let cmd = substitute(eslint_path, '\s', '\\ ', 'g')
   "let &makeprg did not work properly.
   execute 'set makeprg=' . cmd
 
