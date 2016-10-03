@@ -1,6 +1,6 @@
 " File: eslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.2
+" Version: 0.1.3
 " WebPage: http://github.com/heavenshell/vim-eslint-config
 " Description: Vim plugin for ESLint
 " License: BSD, see LICENSE for more details.
@@ -40,8 +40,12 @@ function! s:build_config(srcpath) abort
       let path = printf('%s/%s', root_path, c)
       if isdirectory(path)
         let s:eslint_config = path
+        break
       else
         let s:eslint_config = findfile(c, a:srcpath . ';')
+        if s:eslint_config != ''
+          break
+        endif
       endif
     endfor
   endif

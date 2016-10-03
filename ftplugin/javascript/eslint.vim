@@ -1,6 +1,6 @@
 " File: eslint.vim
 " Author: Shinya Ohyanagi <sohyanagi@gmail.com>
-" Version: 0.1.2
+" Version: 0.1.3
 " WebPage: http://github.com/heavenshell/vim-eslint-config
 " Description: Vim plugin for ESLint
 " License: BSD, see LICENSE for more details.
